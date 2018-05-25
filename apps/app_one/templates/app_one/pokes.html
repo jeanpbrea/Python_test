@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="header">
+        <h1>Welcome, {{request.session.name}} !</h1>
+        <a href="/">Log Out</a>
+        <p> people who dared to poke you!</p>
+    </div>
+    <div id="pokers">
+        {% for allpokers in User %}
+        <fieldset>
+            <p>{{allpokers.name}} poked you times</p>
+        </fieldset>
+        {% endfor %}
+    </div>
+    <div id="pokepeople">
+        <h2>Poke' Em!:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>alias</th>
+                    <th>email</th>
+                    <th>pokeHistory</th>
+                    <th>Action!</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for poker in all_pokers %}
+                <tr> 
+                    <td>{{poker.name}}</td>
+                    <td>{{poker.alias}}</td>
+                    <td>{{poker.email}}</td>
+                    <td></td>
+                    <form action="/poke/"><td><input type="submit" value="Poke!"></td></form>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+    </div>
+</body>
+</html>
